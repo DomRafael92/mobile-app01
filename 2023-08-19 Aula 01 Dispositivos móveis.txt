@@ -1,0 +1,53 @@
+import React from 'react';
+import { View, Text, Image} from 'react-native';
+
+
+function MeuPerfilProfissional(){
+
+let foto = 'https://viciados.net/wp-content/uploads/2020/12/7eda25372d15cd8aa765ef82b050f8fe_cropped_1332x834.jpg'
+let nome = 'Peter Parker';
+let formacao = 'Jornalismo';
+let experiencia = 'Fazer reportagens';
+let projetos = 'Salvar vidas'
+
+
+
+  return(
+    <View>
+      <Text>App Meu Perfil</Text>
+      <Image
+      source={{uri: foto}}
+      style={{width:200, height: 200,marginLeft:100
+      , marginTop: 100}}
+      />
+      <Text style={{fontSize:30, fontWeight: "bold", marginTop:20, marginLeft:10
+      }}>Dados pessoais: </Text>
+
+      <Text style={{fontSize:20, marginLeft:10
+      }}>{nome}</Text>
+
+      <Text style={{fontSize:30, fontWeight: "bold", marginTop:20, marginLeft:10
+      }}>Formação:</Text>
+
+      <Text style={{fontSize:20, marginLeft:10
+      }}>{formacao}</Text>
+
+
+      <Text style={{fontSize:30, fontWeight: "bold", marginTop:20, marginLeft:10
+      }}>Experiência:</Text>
+
+      <Text style={{fontSize:20, marginLeft:10
+      }}>{experiencia}</Text>
+
+
+      <Text style={{fontSize:30, fontWeight: "bold", marginTop:20, marginLeft:10
+      }}>Projetos:</Text>
+
+      <Text style={{fontSize:20, marginLeft:10
+      }}>{projetos}</Text>
+    </View>
+  )
+}
+
+
+export default MeuPerfilProfissional;
