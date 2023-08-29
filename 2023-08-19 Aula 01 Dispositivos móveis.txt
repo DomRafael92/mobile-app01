@@ -1,53 +1,54 @@
-import React from 'react';
-import { View, Text, Image} from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, Button, StyleSheet } from 'react-native';
 
+function App() {
+  const [contador, setContador] = useState(0);
 
-function MeuPerfilProfissional(){
+  function incrementar() {
+    setContador(contador + 1);
+  }
 
-let foto = 'https://viciados.net/wp-content/uploads/2020/12/7eda25372d15cd8aa765ef82b050f8fe_cropped_1332x834.jpg'
-let nome = 'Peter Parker';
-let formacao = 'Jornalismo';
-let experiencia = 'Fazer reportagens';
-let projetos = 'Salvar vidas'
+  function decrementar() {
+    if (contador > 0) {
+      setContador(contador - 1);
+    }
+  }
+  
 
-
-
-  return(
-    <View>
-      <Text>App Meu Perfil</Text>
-      <Image
-      source={{uri: foto}}
-      style={{width:200, height: 200,marginLeft:100
-      , marginTop: 100}}
-      />
-      <Text style={{fontSize:30, fontWeight: "bold", marginTop:20, marginLeft:10
-      }}>Dados pessoais: </Text>
-
-      <Text style={{fontSize:20, marginLeft:10
-      }}>{nome}</Text>
-
-      <Text style={{fontSize:30, fontWeight: "bold", marginTop:20, marginLeft:10
-      }}>Formação:</Text>
-
-      <Text style={{fontSize:20, marginLeft:10
-      }}>{formacao}</Text>
-
-
-      <Text style={{fontSize:30, fontWeight: "bold", marginTop:20, marginLeft:10
-      }}>Experiência:</Text>
-
-      <Text style={{fontSize:20, marginLeft:10
-      }}>{experiencia}</Text>
-
-
-      <Text style={{fontSize:30, fontWeight: "bold", marginTop:20, marginLeft:10
-      }}>Projetos:</Text>
-
-      <Text style={{fontSize:20, marginLeft:10
-      }}>{projetos}</Text>
+  return (
+    <View style={styles.container}>
+      <Text style={styles.titulo}>Contador de Pessoas</Text>
+      <Text style={styles.contador}>{contador}</Text>
+      <View style={styles.botoesContainer}>
+        <Button title="+" onPress={incrementar} color="green" />
+        <View style={styles.espacamento}></View>
+        <Button title="-" onPress={decrementar} color="red" />
+      </View>
     </View>
-  )
+  );
 }
 
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'top',
+    alignItems: 'center',
+  },
+  titulo: {
+    fontSize: 24,
+    marginBottom: 50,
+  },
+  contador: {
+    fontSize: 36,
+    marginBottom: 40,
+  },
+  botoesContainer: {
+    marginTop: 20,
+    width: '30%',
+  },
+  espacamento: {
+    height: 10,
+  },
+});
 
-export default MeuPerfilProfissional;
+export default App;
